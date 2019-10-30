@@ -1,0 +1,23 @@
+.header {
+    width: 100%;
+    background-color: grey;
+    
+}
+
+.radio {
+    margin: auto;
+}
+
+.radio > ul {
+    list-style-type: none;
+    margin: auto;
+}
+
+.title {
+    text-align: center;
+}
+
+.btn-add {    
+    text-align: center;
+    margin: auto 0;
+}

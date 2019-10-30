@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import HeaderComponent from './HeaderComponent/HeaderComponent';
+import ListOptionComponent from './ListOptionComponent/ListOptionComponent';
+import ListItemComponent from './ListItemComponent/ListItemComponent';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  
+    const [listOption, setListOption] = useState([]) 
+    const [backgraundColor, setBackgraundColor] = useState('light')
+
+    function getEmptyData() {
+        return {
+            descr: '',
+            textColor: 'black',
+            typeBackgraundColor: 'light',
+            isDone: false
+        }
+    }
+
+    function onChangeOptionType() {
+
+    } 
+
+    function onAddListItems() {
+        const newListItemOption = getEmptyData() 
+
+        setListOption([...listOption, newListItemOption])
+    }
+
+    return (
+        <div className="container-fluid">            
+            <div className="row app-list">
+                <HeaderComponent
+                    backgraundColor={backgraundColor}
+                    onChangeOptionType={onChangeOptionType}
+                    onAddListItems={onAddListItems}/>
+            </div>
+            <div className="row app-list">
+                <ListOptionComponent/>
+            </div>
+            <div className="row app-list">
+                <ListItemComponent/>
+            </div>
+        </div>
+    );
 }
 
 export default App;
