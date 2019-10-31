@@ -1,0 +1,21 @@
+.li-item {
+    list-style-type: none;
+    border: 1px solid black;
+    margin: 5px;
+    width: 100%;
+    padding: 10px;
+}
+
+.li-item > input {
+    width: 10%;
+}
+
+.li-item > span {
+    text-align: center; 
+    width: 70%;
+}
+
+.li-item > button {
+    float: right;
+    width: 20%;
+}
