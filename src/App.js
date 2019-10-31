@@ -9,6 +9,7 @@ export default function App() {
     const [listOption, setListOption] = useState(getListData())    
     const [backgraundColor, setBackgraundColor] = useState('lightgrey')
     const [listDialogOption, setListDialogOption] = useState([])    
+    const [listColor, setListColor] = useState(getListColor())    
     
     
     function onChangeOptionType(changeEvent) {
@@ -29,18 +30,27 @@ export default function App() {
 
     function onDelete(item) {
         console.log("item", item)
+        setListOption(listOption.filter((el) => el.id !== item.id));
     }
 
-    function onChangeDialogOption(id, updateData) {
-
+    function onChangeDialogOption(id, updateData) {        
+        let dialogOption = listDialogOption.find(el => el.id === id)
+        dialogOption = {
+            ...dialogOption,
+            ...updateData
+        }
+        setListDialogOption(listDialogOption.map(el => el.id === dialogOption.id ? dialogOption : el))
     }
 
     function onSaveDialogOption(dialogItem) {
-
+        console.log("onSaveDialogOption", dialogItem)                 
+        setListOption([...listOption, dialogItem]);        
+        setListDialogOption(listDialogOption.filter((el) => el.id !== dialogItem.id));
     } 
     
-    function onDeleteDialogOption(dialogItem) {
-
+    function onCancelDialogOption(dialogItem) {
+        console.log("onCancelDialogOption", dialogItem) 
+        setListDialogOption(listDialogOption.filter((el) => el.id !== dialogItem.id));
     }
 
     return (
@@ -62,19 +72,32 @@ export default function App() {
             <div className="row app-list">
                 <AddListItemComponent
                     listDialogOption={listDialogOption}
+                    listColor={listColor}
                     onChangeDialogOption={onChangeDialogOption}
                     onSaveDialogOption={onSaveDialogOption}
-                    onDeleteDialogOption={onDeleteDialogOption}
+                    onCancelDialogOption={onCancelDialogOption}
                 />
             </div>
         </div>
     );
 }
 
+function getListColor() {
+    return [
+        { value: "black", label: "Черный" },
+        { value: "gray", label: "Серый" },
+        { value: "white", label: "Белый" },
+        { value: "red", label: "Красный" },
+        { value: "green", label: "Зеленый" },
+        { value: "yellow", label: "Жёлтый"},
+        { value: "blue", label: "Синий" }        
+    ]
+}
+
 function getEmptyData() {
     return {
-        id: Date.now,
-        title: 'none',
+        id: Date.now(),
+        title: '',
         textColor: 'black',
         typeBackgraundColor: 'light',
         isDone: false,

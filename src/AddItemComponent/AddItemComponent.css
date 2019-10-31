@@ -4,32 +4,37 @@
  }
  
  .dialog-color {    
-     display: inline-flex;
+    display: inline-flex;
+    width: 100%;
+    background-color: grey;
  }
  
  .dialog-color > span {
-     width: 10%;    
-     margin: auto;
-     padding: 2%;
+    width: 15%;    
+    margin: auto;
  }
  
- .dialog-color > input {
-     width: 85%;  
-     padding: 0 5px;  
- }
+ 
+ .select-color {
+   width: 85%;   
+}
    
  .dialog-descr {
-     background-color: grey;
-     width: 100%;
-     text-align: center;
+    background-color: grey;
+    width: 100%;
+    text-align: center;
+    margin: 0;
  }
  
  .dialog-descr textarea {    
-     width: 100%;        
-     resize: none;    
+    width: 100%;        
+    resize: none;    
  }
 
- .dialog-button {
-     
-     margin: 10px auto;
+ .dialog-button {    
+    text-align: center;        
  }
+
+ .dialog-button > button { 
+    margin: 5px;
+ }   

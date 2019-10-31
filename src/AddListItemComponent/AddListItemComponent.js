@@ -9,10 +9,11 @@ export default function AddListItemComponent (props) {
                 props.listDialogOption.map(dialogItem => (
                     <AddItemComponent
                         key={dialogItem.id} 
-                        dialogItem={dialogItem}                         
+                        dialogItem={dialogItem}   
+                        listColor={props.listColor}                      
                         onChangeDialogOption={props.onChangeDialogOption}
                         onSaveDialogOption={props.onSaveDialogOption}
-                        onDeleteDialogOption={props.onDeleteDialogOption}
+                        onCancelDialogOption={props.onCancelDialogOption}
                     />
                 ))
             }                
