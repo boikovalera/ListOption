@@ -23,7 +23,7 @@ export default function AddListItemComponent (props) {
 }
 
 AddListItemComponent.propTypes = {
-    listDialogOption: PropTypes.listDialogOption.isRequired,
+    listDialogOption: PropTypes.listDialogOption,
     listColor: PropTypes.listColor.isRequired,    
     onChangeDialogOption: PropTypes.func.isRequired, 
     onSaveDialogOption: PropTypes.func.isRequired,

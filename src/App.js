@@ -13,7 +13,7 @@ export default function App() {
     
     
     function onChangeOptionType(changeEvent) {
-        console.log("changeEvent", changeEvent.target.value)
+        //console.log("changeEvent", changeEvent.target.value)
         setBackgraundColor(changeEvent.target.value)
     }
     
@@ -24,8 +24,12 @@ export default function App() {
         setListDialogOption([...listDialogOption, newListItemOption])
     }
 
-    function onSelect(item) {
-        console.log("item", item);
+    function onSelect(itemOption, updateData) {                
+        itemOption = {
+            ...itemOption,
+            ...updateData
+        }        
+        setListOption(listOption.map(el => el.id === itemOption.id ? itemOption : el))        
     }
 
     function onDelete(item) {        
@@ -97,7 +101,7 @@ function getEmptyData() {
         title: '',
         textColor: 'black',
         typeBackgraundColor: 'lightgrey',
-        isDone: false,
+        isDone: 'false',
         x: 100,
         y: 100
     }
@@ -110,21 +114,21 @@ function getListData() {
             title: 'title1',
             textColor: 'green',
             typeBackgraundColor: 'lightgrey',
-            isDone: false
+            isDone: 'false'
         },
         {
             id: 2,
             title: 'title2',
             textColor: 'blue',
             typeBackgraundColor: 'lightgrey',
-            isDone: false
+            isDone: 'true'
         },
         {
             id: 3,
             title: 'title3',
             textColor: 'red',
             typeBackgraundColor: 'lightgrey',
-            isDone: false
+            isDone: 'false'
         }
     ]
 }

@@ -24,9 +24,9 @@ export default function AddItemComponent(props) {
             }
         );
     }
-        
+    
     return (
-        <div style={{position: 'absolute', border: '1px solid grey'}}>
+        <div style={{position: 'absolute', top: props.dialogItem.y, left: props.dialogItem.x, border: '1px solid grey'}}>        
             <div className='dialog-color'>
                 <span>o</span>                
                 <Select className="select-color"
@@ -54,7 +54,7 @@ export default function AddItemComponent(props) {
 }
 
 AddItemComponent.propTypes = {
-    dialogItem: PropTypes.dialogItem,
+    dialogItem: PropTypes.object,
     listColor: PropTypes.listColor.isRequired,    
     onChangeDialogOption: PropTypes.func.isRequired,
     onSaveDialogOption: PropTypes.func.isRequired,

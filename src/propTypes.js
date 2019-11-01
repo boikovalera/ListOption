@@ -5,7 +5,7 @@ const itemOption = PropTypes.shape({
     title: PropTypes.string,
     textColor: PropTypes.string,
     typeBackgraundColor: PropTypes.string,
-    isDone: PropTypes.bool.isRequired,
+    isDone: PropTypes.string.isRequired,
 });
 
 const listOption = PropTypes.arrayOf(itemOption);
@@ -15,7 +15,9 @@ const itemDialogOption = PropTypes.shape({
     title: PropTypes.string,
     textColor: PropTypes.string,
     typeBackgraundColor: PropTypes.string,
-    isDone: PropTypes.bool.isRequired,
+    isDone: PropTypes.string.isRequired,
+    x: PropTypes.number.isRequired,
+    y: PropTypes.number.isRequired
 });
 
 const listDialogOption = PropTypes.arrayOf(itemDialogOption);
@@ -28,5 +30,5 @@ const itemColor = PropTypes.shape({
 const listColor = PropTypes.arrayOf(itemColor);
 
 export default {
-    ...PropTypes, itemOption, listOption, listOption, listDialogOption, itemColor, listColor
+    ...PropTypes, itemOption, listOption, listDialogOption, itemColor, listColor
 }
