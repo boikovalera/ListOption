@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from '../propTypes';
 import Select from 'react-select'
 import './AddItemComponent.css'
 
@@ -24,58 +25,10 @@ export default function AddItemComponent(props) {
         );
     }
         
-    const deleteBtnStyle = {
-        cursor: 'pointer',
-        float: 'right',
-        fontWeight: 'bold',
-        backgroundColor: 'grey'
-    }
-
-    const moveBtnStyle = {
-        ...deleteBtnStyle,
-        float: 'left',
-        cursor: 'move'
-    }
-
-    const colorStyles = {
-        width: '100%',
-        color: 'red'
-    }
-
-/*     function startDrag(e) {        
-        prevPosition = {
-            x: e.clientX,
-            y: e.clientY
-        }
-        document.addEventListener("mousemove", this.drag);
-        document.addEventListener("mouseup", this.stopDrag)
-    }
-
-    function stopDrag (e) {        
-        document.removeEventListener("mousemove", this.drag);
-        document.removeEventListener("mouseup", this.stopDrag)
-    }
-    
-    function drag(e) {
-        const { x, y } = props.dialogItem;        
-        props.onChange(props.dialogItem.id, {
-            x: x + (e.clientX - this.prevPosition.x),
-            y: y + (e.clientY - this.prevPosition.y)
-        });
-        prevPosition = {
-            x: e.clientX, 
-            y: e.clientY
-        }
-    } */
-
-
     return (
-        <div style={{position: 'absolute', top: props.dialogItem.y, left: props.dialogItem.x, border: '1px solid grey'}}>
+        <div style={{position: 'absolute', border: '1px solid grey'}}>
             <div className='dialog-color'>
-                <span
-                    style={moveBtnStyle}
-                    /* onMouseDown={startDrag()}   */
-                >o</span>                
+                <span>o</span>                
                 <Select className="select-color"
                     name="textColor"                    
                     options = {props.listColor}                     
@@ -98,4 +51,12 @@ export default function AddItemComponent(props) {
             </div>
         </div>
     )    
+}
+
+AddItemComponent.propTypes = {
+    dialogItem: PropTypes.dialogItem,
+    listColor: PropTypes.listColor.isRequired,    
+    onChangeDialogOption: PropTypes.func.isRequired,
+    onSaveDialogOption: PropTypes.func.isRequired,
+    onCancelDialogOption: PropTypes.func.isRequired
 }

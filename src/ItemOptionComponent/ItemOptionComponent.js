@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from '../propTypes';
 import './ItemOptionComponent.css';
 
 export default function ItemOptionComponent(props) {
@@ -12,4 +13,11 @@ export default function ItemOptionComponent(props) {
            <button onClick={props.onDelete.bind(null, props.itemOption)}>Delete</button>
         </li>
     )    
+}
+
+ItemOptionComponent.propTypes = {
+    itemOption: PropTypes.itemOption.isRequired,
+    backgraundColor: PropTypes.string.isRequired,
+    onSelect: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired
 }

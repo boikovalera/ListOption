@@ -28,8 +28,7 @@ export default function App() {
         console.log("item", item);
     }
 
-    function onDelete(item) {
-        console.log("item", item)
+    function onDelete(item) {        
         setListOption(listOption.filter((el) => el.id !== item.id));
     }
 
@@ -42,14 +41,12 @@ export default function App() {
         setListDialogOption(listDialogOption.map(el => el.id === dialogOption.id ? dialogOption : el))
     }
 
-    function onSaveDialogOption(dialogItem) {
-        console.log("onSaveDialogOption", dialogItem)                 
+    function onSaveDialogOption(dialogItem) {        
         setListOption([...listOption, dialogItem]);        
         setListDialogOption(listDialogOption.filter((el) => el.id !== dialogItem.id));
     } 
     
-    function onCancelDialogOption(dialogItem) {
-        console.log("onCancelDialogOption", dialogItem) 
+    function onCancelDialogOption(dialogItem) {        
         setListDialogOption(listDialogOption.filter((el) => el.id !== dialogItem.id));
     }
 
@@ -99,7 +96,7 @@ function getEmptyData() {
         id: Date.now(),
         title: '',
         textColor: 'black',
-        typeBackgraundColor: 'light',
+        typeBackgraundColor: 'lightgrey',
         isDone: false,
         x: 100,
         y: 100
@@ -112,21 +109,21 @@ function getListData() {
             id: 1,
             title: 'title1',
             textColor: 'green',
-            typeBackgraundColor: 'light',
+            typeBackgraundColor: 'lightgrey',
             isDone: false
         },
         {
             id: 2,
             title: 'title2',
             textColor: 'blue',
-            typeBackgraundColor: 'light',
+            typeBackgraundColor: 'lightgrey',
             isDone: false
         },
         {
             id: 3,
             title: 'title3',
             textColor: 'red',
-            typeBackgraundColor: 'light',
+            typeBackgraundColor: 'lightgrey',
             isDone: false
         }
     ]

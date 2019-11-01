@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from '../propTypes';
 import AddItemComponent from '../AddItemComponent/AddItemComponent'
 
 export default function AddListItemComponent (props) {
@@ -20,3 +21,11 @@ export default function AddListItemComponent (props) {
         </div>
     )    
 }
+
+AddListItemComponent.propTypes = {
+    listDialogOption: PropTypes.listDialogOption.isRequired,
+    listColor: PropTypes.listColor.isRequired,    
+    onChangeDialogOption: PropTypes.func.isRequired, 
+    onSaveDialogOption: PropTypes.func.isRequired,
+    onCancelDialogOption: PropTypes.func.isRequired
+}                    

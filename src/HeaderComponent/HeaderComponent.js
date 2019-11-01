@@ -35,6 +35,7 @@ export default function HeaderComponent(props) {
 }
 
 HeaderComponent.propTypes = {
+    backgraundColor: propTypes.string.isRequired,
     onChangeOptionType: propTypes.func.isRequired,
     onAddListItems: propTypes.func.isRequired
 }
